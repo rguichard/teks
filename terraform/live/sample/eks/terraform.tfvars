@@ -249,3 +249,17 @@ node-pools = [
     kubelet_extra_args = "--kubelet-extra-args '--node-labels node-role.kubernetes.io/node=\"\" --kube-reserved cpu=250m,memory=0.5Gi,ephemeral-storage=1Gi --system-reserved cpu=250m,memory=0.2Gi,ephemeral-storage=1Gi --eviction-hard memory.available<500Mi,nodefs.available<10%'"
   },
 ]
+node-pools-gpu = [
+  {
+    name = "gpu-node"
+    min_size = "${var.nvidia_plugin["enabled"] ? 1 : 0 }"
+    max_size = 3
+    desired_capacity = "${var.nvidia_plugin["enabled"] ? 1 : 0 }"
+    instance_type = "p2.xlarge"
+    key_name = "keypair"
+    volume_size = 30
+    volume_type = "gp2"
+    autoscaling = "disabled"
+    kubelet_extra_args = "--kubelet-extra-args '--node-labels node-role.kubernetes.io/node=\"\",gpu-node=true --kube-reserved cpu=250m,memory=0.5Gi,ephemeral-storage=1Gi --system-reserved cpu=250m,memory=0.2Gi,ephemeral-storage=1Gi --eviction-hard memory.available<500Mi,nodefs.available<10%'"
+  },
+]

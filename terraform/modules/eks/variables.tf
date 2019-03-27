@@ -86,3 +86,8 @@ variable "cni_metrics_helper" {
   type    = "map"
   default = {}
 }
+
+variable "nvidia_plugin" {
+  type    = "map"
+  default = {}
+}

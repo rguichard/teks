@@ -176,3 +176,13 @@ npd = {
   namespace = "node-problem-detector"
   extra_values = ""
 }
+
+//
+// [nvidia-plugin]
+//
+nvidia_plugin = {
+  enabled = false
+  namespace = "nvidia-plugin"
+  extra_values = ""
+}
+
