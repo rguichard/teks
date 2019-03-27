@@ -17,6 +17,11 @@ variable "node-pools" {
   type    = "list"
 }
 
+variable "node-pools-gpu" {
+  default = []
+  type    = "list"
+}
+
 variable "domain_name" {
   description = "Domain name of the parent domain where subdomain is created"
   default     = "domain.tld"
